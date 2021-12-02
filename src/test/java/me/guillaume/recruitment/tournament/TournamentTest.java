@@ -1,20 +1,18 @@
 package me.guillaume.recruitment.tournament;
 
-
+import fm.tournament.Highlander;
+import fm.tournament.Swordsman;
+import fm.tournament.Viking;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 /**
- *
  * This is a duel simulation
- *
+ * <p>
  * Blow exchange are sequential, A engage B means that A will give the first blow, then B will respond
- *
  */
 public class TournamentTest {
-
 
     /**
      * A Swordsman has 100 hit points and use a 1 hand sword that does 5 dmg
@@ -31,7 +29,6 @@ public class TournamentTest {
 
         assertThat(swordsman.hitPoints()).isEqualTo(0);
         assertThat(viking.hitPoints()).isEqualTo(35);
-
     }
 
     /**
@@ -51,7 +48,6 @@ public class TournamentTest {
 
         assertThat(swordsman.hitPoints()).isEqualTo(0);
         assertThat(viking.hitPoints()).isEqualTo(70);
-
     }
 
     /**
@@ -72,7 +68,6 @@ public class TournamentTest {
 
         assertThat(swordsman.hitPoints()).isEqualTo(0);
         assertThat(highlander.hitPoints()).isEqualTo(10);
-
     }
 
     /**
@@ -95,7 +90,5 @@ public class TournamentTest {
 
         assertThat(swordsman.hitPoints()).isEqualTo(1);
         assertThat(highlander.hitPoints()).isEqualTo(0);
-
     }
-
 }
