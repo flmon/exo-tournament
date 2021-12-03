@@ -62,10 +62,10 @@ public abstract class Fighter implements IFighter {
         fighter2.checkEquipment(fighter1);
     }
 
-    public void checkEquipment(IFighter opponent) {
+    public void checkEquipment(Fighter opponent) {
         if (equipmentList.contains(BUCKLER)) bucklerIsOn = true;
         if (equipmentList.contains(ARMOR)) inflictedDamage--;
-        if (((Fighter) opponent).hasAnAxe()) opponentHasAxe = true;
+        if (opponent.hasAnAxe()) opponentHasAxe = true;
     }
 
     //a single attack
