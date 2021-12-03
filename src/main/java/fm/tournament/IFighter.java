@@ -7,4 +7,10 @@ public interface IFighter {
     int hitPoints();
 
     IFighter equip(String equipment);
+
+    //a single attack
+    void blow(IFighter opponent);
+
+    //
+    void reduceHitPoints(int amount);
 }

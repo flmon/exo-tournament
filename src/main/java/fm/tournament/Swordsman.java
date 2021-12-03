@@ -4,6 +4,7 @@ public class Swordsman extends Fighter implements IFighter {
 
     public Swordsman() {
         hitPoints = 100;
+        inflictedDamage = 5;
     }
 
     public Swordsman(String detail) {
@@ -12,18 +13,8 @@ public class Swordsman extends Fighter implements IFighter {
     }
 
     @Override
-    public void engage(IFighter opponent) {
-
-    }
-
-    @Override
-    public int hitPoints() {
-        return 0;
-    }
-
-    @Override
     public Swordsman equip(String equipment) {
-        equipmentList.add(1);
+        equipmentList.add(equipment);
         return this;
     }
 }

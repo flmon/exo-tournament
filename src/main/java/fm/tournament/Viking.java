@@ -4,16 +4,7 @@ public class Viking extends Fighter implements IFighter {
 
     public Viking() {
         hitPoints = 120;
-    }
-
-    @Override
-    public void engage(IFighter opponent) {
-
-    }
-
-    @Override
-    public int hitPoints() {
-        return 0;
+        inflictedDamage = 6;
     }
 
     @Override

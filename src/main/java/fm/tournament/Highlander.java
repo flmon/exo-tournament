@@ -11,17 +11,12 @@ public class Highlander extends Fighter implements IFighter {
     }
 
     @Override
-    public void engage(IFighter opponent) {
-
-    }
-
-    @Override
-    public int hitPoints() {
-        return 0;
-    }
-
-    @Override
     public IFighter equip(String equipment) {
         return this;
+    }
+
+    @Override
+    public void blow(IFighter opponent) {
+
     }
 }
