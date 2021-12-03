@@ -12,7 +12,6 @@ public class Swordsman extends Fighter implements IFighter {
         System.out.println("Swordsman with specialty");
     }
 
-    @Override
     public Swordsman equip(String equipment) {
         equipmentList.add(equipment);
         return this;

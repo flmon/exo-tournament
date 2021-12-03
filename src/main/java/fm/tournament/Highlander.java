@@ -11,12 +11,12 @@ public class Highlander extends Fighter implements IFighter {
     }
 
     @Override
-    public IFighter equip(String equipment) {
-        return this;
-    }
-
-    @Override
     public void blow(IFighter opponent) {
 
+    }
+
+    public Highlander equip(String equipment) {
+        equipmentList.add(equipment);
+        return this;
     }
 }

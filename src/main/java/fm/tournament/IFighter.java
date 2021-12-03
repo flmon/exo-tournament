@@ -13,4 +13,9 @@ public interface IFighter {
 
     //
     void reduceHitPoints(int amount);
+
+    //
+    void checkEquipment(IFighter opponent);
+
+    boolean hasAnAxe();
 }
