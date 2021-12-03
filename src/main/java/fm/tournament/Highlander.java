@@ -1,5 +1,10 @@
 package fm.tournament;
 
+/**
+ * @author Florian Monachon
+ * <p>
+ * This class is to define a specialized fighter
+ */
 public class Highlander extends Fighter implements IFighter {
     private static final String VETERAN = "Veteran";
 
@@ -42,7 +47,7 @@ public class Highlander extends Fighter implements IFighter {
         }
     }
 
-    public void blow(IFighter opponent) {
+    protected void blow(Fighter opponent) {
         if (veteranMode) updateDamage();
 
         nbTimesUsed++;

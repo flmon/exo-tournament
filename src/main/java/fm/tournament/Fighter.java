@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author fmonachon
+ * @author Florian Monachon
  * <p>
  * This class is to define the common fields of a fighter
+ * <p>
+ * It's declared abstract as it should not be instantied, we should instance subclasses
  */
 public abstract class Fighter implements IFighter {
 
@@ -19,7 +21,7 @@ public abstract class Fighter implements IFighter {
     // the current points of the fighter
     protected int hitPoints;
 
-    // fighter's weapons
+    // fighter's weapons or protections
     protected List<String> equipmentList = new ArrayList<>();
 
     // the damages inflicted
@@ -40,18 +42,19 @@ public abstract class Fighter implements IFighter {
 
     // the fighting
     public void engage(IFighter opponent) {
+        Fighter _opponent = (Fighter) opponent;
 
-        checkEquipment(this, opponent);
+        checkEquipment(this, _opponent);
         while (hitPoints > 0 && opponent.hitPoints() > 0) {
 
             // 1st blow
-            blow(opponent);
+            blow(_opponent);
 
-            ((Fighter) opponent).blow(this);
+            _opponent.blow(this);
         }
     }
 
-    private void checkEquipment(IFighter fighter1, IFighter fighter2) {
+    private void checkEquipment(Fighter fighter1, Fighter fighter2) {
         fighter1.checkEquipment(fighter2);
         fighter2.checkEquipment(fighter1);
     }
@@ -63,11 +66,11 @@ public abstract class Fighter implements IFighter {
     }
 
     //a single attack
-    public void blow(IFighter opponent) {
+    protected void blow(Fighter opponent) {
         opponent.reduceHitPoints(inflictedDamage);
     }
 
-    public void reduceHitPoints(int amount) {
+    protected void reduceHitPoints(int amount) {
         int effectiveDamage = amount;
         if (equipmentList.contains(ARMOR)) effectiveDamage -= 3;
 

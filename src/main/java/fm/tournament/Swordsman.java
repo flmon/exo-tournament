@@ -1,5 +1,10 @@
 package fm.tournament;
 
+/**
+ * @author Florian Monachon
+ * <p>
+ * This class is to define a specialized fighter
+ */
 public class Swordsman extends Fighter implements IFighter {
     private static final String VICIOUS = "Vicious";
 
@@ -35,7 +40,7 @@ public class Swordsman extends Fighter implements IFighter {
         if (nbTimesUsed == 3) inflictedDamage -= 20;
     }
 
-    public void blow(IFighter opponent) {
+    protected void blow(Fighter opponent) {
         if (viciousMode) updateDamage();
 
         opponent.reduceHitPoints(inflictedDamage);

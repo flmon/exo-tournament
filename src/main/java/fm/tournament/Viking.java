@@ -1,5 +1,10 @@
 package fm.tournament;
 
+/**
+ * @author Florian Monachon
+ * <p>
+ * This class is to define a specialized fighter
+ */
 public class Viking extends Fighter implements IFighter {
 
     public Viking() {
