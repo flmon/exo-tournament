@@ -56,6 +56,7 @@ public abstract class Fighter implements IFighter {
 
     public void checkEquipment(IFighter opponent) {
         if (equipmentList.contains(BUCKLER)) bucklerIsOn = true;
+        if (equipmentList.contains(ARMOR)) inflictedDamage--;
         if (opponent.hasAnAxe()) oppponentHasAxe = true;
     }
 
@@ -64,9 +65,12 @@ public abstract class Fighter implements IFighter {
     }
 
     public void reduceHitPoints(int amount) {
+        int effectiveDamage = amount;
+        if (equipmentList.contains(ARMOR)) effectiveDamage -= 3;
+
         if (bucklerIsOn) bucklerIsOn = false;
         else {
-            hitPoints -= amount;
+            hitPoints -= effectiveDamage;
             nbHitsReceived++;
 
             if (equipmentList.contains(BUCKLER))
