@@ -14,6 +14,8 @@ public abstract class Fighter implements IFighter {
     public static final String AXE = "axe";
     private static final String ARMOR = "armor";
 
+    public static final int SWORD_DAMAGE = 5;
+
     // the current points of the fighter
     protected int hitPoints;
 
@@ -27,7 +29,7 @@ public abstract class Fighter implements IFighter {
     private boolean bucklerIsOn;
 
     //if opponent has an axe
-    private boolean oppponentHasAxe;
+    private boolean opponentHasAxe;
 
     //counter to see if buckler is OK
     private int nbHitsReceived;
@@ -45,7 +47,7 @@ public abstract class Fighter implements IFighter {
             // 1st blow
             blow(opponent);
 
-            opponent.blow(this);
+            ((Fighter) opponent).blow(this);
         }
     }
 
@@ -57,9 +59,10 @@ public abstract class Fighter implements IFighter {
     public void checkEquipment(IFighter opponent) {
         if (equipmentList.contains(BUCKLER)) bucklerIsOn = true;
         if (equipmentList.contains(ARMOR)) inflictedDamage--;
-        if (opponent.hasAnAxe()) oppponentHasAxe = true;
+        if (((Fighter) opponent).hasAnAxe()) opponentHasAxe = true;
     }
 
+    //a single attack
     public void blow(IFighter opponent) {
         opponent.reduceHitPoints(inflictedDamage);
     }
@@ -74,12 +77,12 @@ public abstract class Fighter implements IFighter {
             nbHitsReceived++;
 
             if (equipmentList.contains(BUCKLER))
-                if (!oppponentHasAxe || nbHitsReceived <= 3)
+                if (!opponentHasAxe || nbHitsReceived <= 3)
                     bucklerIsOn = true;
         }
     }
 
-    public boolean hasAnAxe() {
+    private boolean hasAnAxe() {
         return equipmentList.contains(AXE);
     }
 }

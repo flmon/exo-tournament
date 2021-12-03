@@ -8,14 +8,9 @@ public interface IFighter {
 
     IFighter equip(String equipment);
 
-    //a single attack
-    void blow(IFighter opponent);
-
     //
     void reduceHitPoints(int amount);
 
     //
     void checkEquipment(IFighter opponent);
-
-    boolean hasAnAxe();
 }
