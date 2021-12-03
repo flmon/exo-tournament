@@ -33,6 +33,7 @@ public class Highlander extends Fighter implements IFighter {
         }
     }
 
+    @Override
     public Highlander equip(String equipment) {
         equipmentList.add(equipment);
         return this;
@@ -47,6 +48,7 @@ public class Highlander extends Fighter implements IFighter {
         }
     }
 
+    @Override
     protected void blow(Fighter opponent) {
         if (veteranMode) updateDamage();
 

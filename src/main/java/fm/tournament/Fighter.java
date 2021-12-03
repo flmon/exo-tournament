@@ -36,11 +36,13 @@ public abstract class Fighter implements IFighter {
     //counter to see if buckler is OK
     private int nbHitsReceived;
 
+    @Override
     public int hitPoints() {
         return Math.max(0, hitPoints);
     }
 
     // the fighting
+    @Override
     public void engage(IFighter opponent) {
         Fighter _opponent = (Fighter) opponent;
 

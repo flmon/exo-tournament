@@ -13,6 +13,7 @@ public class Viking extends Fighter implements IFighter {
         equip(AXE);
     }
 
+    @Override
     public Viking equip(String equipment) {
         equipmentList.add(equipment);
 

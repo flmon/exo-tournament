@@ -25,6 +25,7 @@ public class Swordsman extends Fighter implements IFighter {
         }
     }
 
+    @Override
     public Swordsman equip(String equipment) {
         equipmentList.add(equipment);
 
@@ -40,6 +41,7 @@ public class Swordsman extends Fighter implements IFighter {
         if (nbTimesUsed == 3) inflictedDamage -= 20;
     }
 
+    @Override
     protected void blow(Fighter opponent) {
         if (viciousMode) updateDamage();
 
