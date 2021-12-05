@@ -8,7 +8,7 @@ package fm.tournament;
 public class Viking extends Fighter implements IFighter {
 
     public Viking() {
-        hitPoints = 120;
+        hitPoints = VIKING_INIT_HP;
         inflictedDamage = SWORD_DAMAGE;
         equip(AXE);
     }
@@ -17,8 +17,8 @@ public class Viking extends Fighter implements IFighter {
     public Viking equip(String equipment) {
         equipmentList.add(equipment);
 
-        //the axe increase dmg of 1
-        if (equipment.equals(AXE)) inflictedDamage++;
+        //he has axe correct damage
+        if (equipment.equals(AXE)) inflictedDamage += AXE_DAMAGE - SWORD_DAMAGE;
         return this;
     }
 }

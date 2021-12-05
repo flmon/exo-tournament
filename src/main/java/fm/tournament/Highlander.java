@@ -8,10 +8,8 @@ package fm.tournament;
 public class Highlander extends Fighter implements IFighter {
     private static final String VETERAN = "Veteran";
 
-    private final int initialHitPoints = 150;
-
     // 30% of initial
-    private final int veteranLimitHitPoints = 30 * initialHitPoints / 100;
+    private final int veteranLimitHitPoints = PERCENTAGE_LIM_WHEN_BERSERK * HIGHLANDER_INIT_HP / 100;
 
     // counter for the great sword
     private int nbTimesUsed;
@@ -22,8 +20,8 @@ public class Highlander extends Fighter implements IFighter {
     private boolean berserkDamageDone;
 
     public Highlander() {
-        hitPoints = initialHitPoints;
-        inflictedDamage = 12;
+        hitPoints = HIGHLANDER_INIT_HP;
+        inflictedDamage = GREAT_SWORD_DAMAGE;
     }
 
     public Highlander(String detail) {
@@ -43,7 +41,7 @@ public class Highlander extends Fighter implements IFighter {
         if (berserkDamageDone) return;
 
         if (hitPoints < veteranLimitHitPoints) {
-            inflictedDamage *= 2;
+            inflictedDamage *= DMG_MULT_WHEN_BERSERK;
             berserkDamageDone = true;
         }
     }

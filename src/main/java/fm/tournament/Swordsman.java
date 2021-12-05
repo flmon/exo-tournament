@@ -14,7 +14,7 @@ public class Swordsman extends Fighter implements IFighter {
     private int nbTimesUsed;
 
     public Swordsman() {
-        hitPoints = 100;
+        hitPoints = SWORDSMAN_INIT_HP;
         inflictedDamage = SWORD_DAMAGE;
     }
 
@@ -29,16 +29,16 @@ public class Swordsman extends Fighter implements IFighter {
     public Swordsman equip(String equipment) {
         equipmentList.add(equipment);
 
-        //the axe increase dmg of 1
-        if (equipment.equals(AXE)) inflictedDamage++;
+        //if he has axe correct damage
+        if (equipment.equals(AXE)) inflictedDamage += AXE_DAMAGE - SWORD_DAMAGE;
         return this;
     }
 
     private void updateDamage() {
         nbTimesUsed++;
-        if (nbTimesUsed > 3) return;
-        if (nbTimesUsed == 1) inflictedDamage += 20;
-        if (nbTimesUsed == 3) inflictedDamage -= 20;
+        if (nbTimesUsed > POISON_MAX_USE + 1) return;
+        if (nbTimesUsed == 1) inflictedDamage += DMG_INFL_INC_WHEN_POISON;
+        if (nbTimesUsed == POISON_MAX_USE + 1) inflictedDamage -= DMG_INFL_INC_WHEN_POISON;
     }
 
     @Override
