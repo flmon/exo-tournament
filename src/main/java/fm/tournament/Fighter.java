@@ -34,7 +34,6 @@ public abstract class Fighter implements IFighter {
     public static final int BUCKLER_MAX_USE_WHEN_AXE = 3;
     public static final int POISON_MAX_USE = 2;
 
-    public static final int PERCENTAGE_LIM_WHEN_BERSERK = 30;
     public static final int DMG_MULT_WHEN_BERSERK = 2;
 
     /***********************************************************************/

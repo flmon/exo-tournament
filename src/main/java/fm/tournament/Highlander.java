@@ -7,9 +7,10 @@ package fm.tournament;
  */
 public class Highlander extends Fighter implements IFighter {
     private static final String VETERAN = "Veteran";
+    private static final int PERCENTAGE_LIM_WHEN_BERSERK = 30;
 
     // 30% of initial
-    private final int veteranLimitHitPoints = PERCENTAGE_LIM_WHEN_BERSERK * HIGHLANDER_INIT_HP / 100;
+    private final double veteranLimitHitPoints = PERCENTAGE_LIM_WHEN_BERSERK * HIGHLANDER_INIT_HP / 100.0;
 
     // counter for the great sword
     private int nbTimesUsed;
