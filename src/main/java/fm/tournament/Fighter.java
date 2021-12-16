@@ -72,8 +72,9 @@ public abstract class Fighter implements IFighter {
             // 1st blow
             blow(_opponent);
 
-            // return blow (of the opponent)
-            _opponent.blow(this);
+            // return blow (of the opponent if still alive)
+            if (_opponent.hitPoints() > 0)
+                _opponent.blow(this);
         }
     }
 
